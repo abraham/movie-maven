@@ -1,0 +1,16 @@
+{
+  "name": "movie-maven",
+  "description": "Google Actions Movie Maven",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "actions-on-google": "^1.0.0",
+    "body-parser": "^1.15.2",
+    "express": "^4.13.4",
+    "node-fetch": "^1.6.3",
+    "sprintf-js": "^1.0"
+  }
+}
