@@ -51,7 +51,7 @@ function getMovie(assistant) {
   let genreIds = lookupGenreIds(currentGenres(assistant));
 
   if (genreIds.length === 0) {
-    assistant.ask("I don't know that genre, try a different one.");
+    assistant.ask("I don't know that genre. Try a different one.");
     return;
   }
 
@@ -87,7 +87,7 @@ function quit(assistant) {
 }
 
 function defaultFallback(assistant) {
-  assistant.ask('Say a genre to get a movie suggestion.');
+  assistant.ask("Sorry, I didn't understand you. Say a genre to get a movie suggestion.");
 }
 
 function askGenre(assistant) {
