@@ -41,13 +41,14 @@ function apiUrl(genreIds) {
 }
 
 function currentGenres(assistant) {
-  let genre = assistant.getArgument('genre') || assistant.data.last_genre;
+  let genre = assistant.getArgument('genre').length > 0 ? assistant.getArgument('genre') : assistant.data.last_genre;
   assistant.data.last_genre = genre;
   return genre;
 }
 
 function getMovie(assistant) {
-  let genreIds = lookupGenreIds(currentGenres(assistant));
+  let genres = currentGenres(assistant);
+  let genreIds = lookupGenreIds(genres);
 
   if (genreIds.length === 0) {
     assistant.ask("I don't know that genre. Try a different one.");
