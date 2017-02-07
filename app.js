@@ -41,7 +41,8 @@ function apiUrl(genreIds) {
 }
 
 function currentGenres(assistant) {
-  let genre = assistant.getArgument('genre').length > 0 ? assistant.getArgument('genre') : assistant.data.last_genre;
+  let genreArg = assistant.getArgument('genre') || [];
+  let genre = genreArg.length > 0 ? genreArg : assistant.data.last_genre;
   assistant.data.last_genre = genre;
   return genre;
 }
