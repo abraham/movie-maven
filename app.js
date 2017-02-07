@@ -23,7 +23,6 @@ const DEFAULT_FALLBACK_ACTION = 'input.unknown';
 const WELCOME_ACTION = 'welcome';
 const ASK_GENRE_ACTION = 'ask_genre';
 const GET_MOVIE_ACTION = 'get_movie';
-const GENERATE_ANSWER_ACTION = 'generate_answer';
 const AVAILABLE_GENRES_ACTION = 'available_genres';
 const QUIT_ACTION = 'quit';
 
