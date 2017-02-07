@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 8080));
 app.use(bodyParser.json({type: 'application/json'}));
 
-const API_KEY = '0d6f70413914000a644524b25e56e43a';
+const API_KEY = process.env.API_KEY;
 const API_HOST_AND_PATH = 'https://api.themoviedb.org/3/discover/movie'
 const API_PARAMS = `api_key=${API_KEY}&include_adult=false&include_video=false`;
 
