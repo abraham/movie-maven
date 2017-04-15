@@ -40,11 +40,34 @@ function apiUrl(genreIds) {
   return `${API_HOST_AND_PATH}?${API_PARAMS}&with_genres=${genreIds.join(',')}`;
 }
 
+function rand(length) {
+  return Math.floor(Math.random() * myArray.length);
+}
+
 function currentGenres(assistant) {
   let genreArg = assistant.getArgument('genre') || [];
   let genre = genreArg.length > 0 ? genreArg : assistant.data.last_genre;
   assistant.data.last_genre = genre;
   return genre;
+}
+
+function randomAnotherPrompt() {
+  let texts = [
+    'Would you like another suggestion?',
+    'Can I recommend something else?',
+    'How about another movie?'
+  ];
+  return texts[rand(texts.length)];
+}
+
+function randomAnswer(title) {
+  let texts = [
+    `How about ${title}?`,
+    `Does ${title} sound good?`,
+    `You should watch ${title}.`,
+    `I heard ${title} was pretty good.`
+  ];
+  return texts[rand(texts.length)];
 }
 
 function getMovie(assistant) {
@@ -64,7 +87,7 @@ function getMovie(assistant) {
       return randomMovie(res['results']);
     })
     .then(function(title) {
-      assistant.ask(`How about ${title}? Would you like another suggestion?`);
+      assistant.ask(`${randomAnswer(title)} ${randomAnotherPrompt()}`);
     });
 }
 
