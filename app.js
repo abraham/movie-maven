@@ -41,7 +41,7 @@ function apiUrl(genreIds) {
 }
 
 function rand(length) {
-  return Math.floor(Math.random() * myArray.length);
+  return Math.floor(Math.random() * length);
 }
 
 function currentGenres(assistant) {
